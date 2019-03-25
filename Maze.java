@@ -18,7 +18,8 @@ public class Maze
         int[] start = new int[2];
         int[] finish = new int[2];
     }
-    public void readMaze(string filename)
+    
+    public void readMaze(String filename) throws FileNotFoundException
     {
         Scanner reader = new Scanner(new File(filename));
 
@@ -35,19 +36,19 @@ public class Maze
 
         for (int i = 0; i < row; i++)
         {
-            if (a[0][i] == 0)
+            if (m[i][0] == 0)
             {
-                start[0] = 0;
-                start[1] = i;
+            		start[0] = i;
+            		start[1] = 0;
             }
         }
 
-        for (int i = 0; i < x; i++)
+        for (int i = 0; i < row; i++)
         {
-            if (a[col-1][i] == 0)
+            if (m[i][col-1] == 0)
             {
-                finish[0] = col-1;
-                finish[1] = i;
+            		finish[0] = i;
+            		finish[1] = col-1;
             }
         }
     }
