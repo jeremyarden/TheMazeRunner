@@ -8,7 +8,6 @@ public class Maze
     int col;
     int[] start;
     int[] finish;
-    int dist;
     int[][] m;
 
     public Maze(int x, int y)
@@ -18,7 +17,6 @@ public class Maze
         int[][] m = new int[x][y];
         int[] start = new int[2];
         int[] finish = new int[2];
-        this.dist = 0;
     }
     public void readMaze(string filename)
     {
@@ -52,7 +50,5 @@ public class Maze
                 finish[1] = i;
             }
         }
-        
-        this.dist = Math.abs(start[0] - finish[0]) + Math.abs(start[1] - finish[1]);
     }
 }
