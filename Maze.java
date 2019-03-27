@@ -4,51 +4,52 @@ import java.lang.Math;
 
 public class Maze
 {
-    int row;
+    public int row;
     int col;
-    int[] start;
-    int[] finish;
-    int[][] m;
+    public int[] start;
+    public int[] finish;
+    public int[][] m;
 
     public Maze(int x, int y)
     {
         this.row = x;
         this.col = y;
-        int[][] m = new int[x][y];
-        int[] start = new int[2];
-        int[] finish = new int[2];
+        m = new int[x][y];
+        start = new int[2];
+        finish = new int[2];
     }
     
     public void readMaze(String filename) throws FileNotFoundException
     {
         Scanner reader = new Scanner(new File(filename));
-
+        String currString = reader.next();
         for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < col; j++)
             {
-                if (reader.hasNextInt())
-                {
-                    m[i][j] = reader.nextInt();
-                }
+            		m[i][j] = Character.getNumericValue(currString.charAt(j));
+            }
+            if(reader.hasNext())
+            {
+            		currString = reader.next();
             }
         }
 
-        for (int i = 0; i < row; i++)
+        for (int i = 0; i < this.row; i++)
         {
             if (m[i][0] == 0)
             {
-            		start[0] = i;
-            		start[1] = 0;
+            		this.start[0] = i;
+            		this.start[1] = 0;
             }
         }
 
-        for (int i = 0; i < row; i++)
+        for (int i = 0; i < this.row; i++)
         {
             if (m[i][col-1] == 0)
             {
-            		finish[0] = i;
-            		finish[1] = col-1;
+            		this.finish[0] = i;
+            		this.finish[1] = col-1;
             }
         }
     }
