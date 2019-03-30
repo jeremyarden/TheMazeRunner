@@ -6,11 +6,13 @@ import javax.swing.SwingUtilities;
 
 public class View extends JFrame{
 	
-	private BFS a;
+	private BFS bfs;
+	private Maze a;
 	public View() throws FileNotFoundException
 	{
-		a = new BFS("/Users/abiyyuismunandar/Documents/Stima/MazeRunner/TheMazeRunner-master/MazeRunner/test/Maze_med.txt");
-		a.findPath();
+		bfs = new BFS("/Users/abiyyuismunandar/Documents/Stima/MazeRunner/TheMazeRunner-master/MazeRunner/test/Maze_med.txt");
+		bfs.findPath();
+		a = new Maze(bfs.mazeUsed);
 		setTitle("Maze");
 		setSize(800,800);
 		setLocationRelativeTo(null);
@@ -25,10 +27,10 @@ public class View extends JFrame{
         g.translate(50, 50);
         
         // draw the maze
-        for (int row = 0; row < a.mazeUsed.m.length; row++) {
-            for (int col = 0; col < a.mazeUsed.m[0].length; col++) {
+        for (int row = 0; row < a.m.length; row++) {
+            for (int col = 0; col < a.m[0].length; col++) {
                 Color color;
-                switch( a.mazeUsed.m[row][col]) {
+                switch( a.m[row][col]) {
                     case 1 : color = Color.BLACK; break;
                     case 2 : color = Color.RED; break;
                     case 3 : color = Color.GREEN; break;
