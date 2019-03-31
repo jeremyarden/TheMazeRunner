@@ -34,6 +34,7 @@ public class Maze
             		currString = reader.next();
             }
         }
+        reader.close();
 
         for (int i = 0; i < this.row; i++)
         {

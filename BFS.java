@@ -333,7 +333,7 @@ public class BFS
 		mazeUsed.m[y][x] = el;
 	}
 	
-	class Point
+	public class Point
 	{
 		int x;
 		int y;
